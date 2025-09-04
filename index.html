@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esami Universitari - Graphic & Web Design</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-graduation-cap"></i> Esami Universitari</h1>
+            <p>Graphic & Web Design - Gestisci i tuoi esami</p>
+        </header>
+
+        <div class="main-content">
+            <!-- Modulo Profilo Studente -->
+            <div class="student-profile">
+                <div class="profile-header">
+                    <div class="profile-avatar">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h2>Profilo Studente</h2>
+                </div>
+                
+                <div class="profile-info">
+                    <div class="info-group">
+                        <label><i class="fas fa-user"></i> Nome:</label>
+                        <input type="text" id="student-name" placeholder="Il tuo nome" maxlength="50">
+                    </div>
+                    
+                    <div class="info-group">
+                        <label><i class="fas fa-id-card"></i> Matricola:</label>
+                        <input type="text" id="student-id" placeholder="Numero matricola" maxlength="20">
+                    </div>
+                    
+                    <div class="info-group">
+                        <label><i class="fas fa-calendar"></i> Anno:</label>
+                        <select id="student-year">
+                            <option value="">Seleziona anno</option>
+                            <option value="1">Primo Anno</option>
+                            <option value="2">Secondo Anno</option>
+                            <option value="3">Terzo Anno</option>
+                        </select>
+                    </div>
+                    
+                    <div class="info-group">
+                        <label><i class="fas fa-university"></i> Università:</label>
+                        <input type="text" id="student-university" placeholder="Nome università" maxlength="100">
+                    </div>
+                </div>
+                
+                <div class="profile-stats">
+                    <h3><i class="fas fa-chart-bar"></i> Statistiche</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number" id="total-exams">0</span>
+                            <span class="stat-label">Esami Totali</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="completed-exams">0</span>
+                            <span class="stat-label">Superati</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="pending-exams">0</span>
+                            <span class="stat-label">Da Sostenere</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="average-grade">-</span>
+                            <span class="stat-label">Media Voti</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="profile-actions">
+                    <button class="profile-btn" id="save-profile">
+                        <i class="fas fa-save"></i> Salva Profilo
+                    </button>
+                    <button class="profile-btn" id="edit-profile" style="display:none;">
+                        <i class="fas fa-edit"></i> Modifica Profilo
+                    </button>
+                    <button class="profile-btn" id="export-data">
+                        <i class="fas fa-download"></i> Esporta Dati
+                    </button>
+                </div>
+            </div>
+
+            <!-- Lista Esami -->
+            <div class="todo-app">
+            <form id="todo-form" class="todo-form">
+                <div class="input-group">
+                    <input 
+                        type="text" 
+                        id="todo-input" 
+                        placeholder="Aggiungi un nuovo esame..." 
+                        required
+                        maxlength="100"
+                    >
+                    <button type="submit" class="add-btn">
+                        <i class="fas fa-plus"></i>
+                    </button>
+                </div>
+            </form>
+
+            <div class="todo-filters">
+                <button class="filter-btn active" data-filter="all">
+                    <i class="fas fa-list"></i> Tutti gli Esami
+                </button>
+                <button class="filter-btn" data-filter="active">
+                    <i class="fas fa-clock"></i> Da Sostenere
+                </button>
+                <button class="filter-btn" data-filter="completed">
+                    <i class="fas fa-check"></i> Superati
+                </button>
+            </div>
+
+            <div class="todo-stats">
+                <span id="tasks-counter">0 esami</span>
+                <button id="clear-completed" class="clear-btn">
+                    <i class="fas fa-trash"></i> Cancella superati
+                </button>
+            </div>
+
+            <ul id="todo-list" class="todo-list">
+                <!-- Gli esami verranno aggiunti qui dinamicamente -->
+            </ul>
+
+            <div id="empty-state" class="empty-state">
+                <i class="fas fa-graduation-cap"></i>
+                <p>Nessun esame ancora. Aggiungi il tuo primo esame!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal per inserimento voto -->
+    <div id="grade-modal" class="grade-modal">
+        <div class="grade-modal-content">
+            <div class="grade-modal-header">
+                <h3><i class="fas fa-star"></i> Inserisci Voto</h3>
+                <button class="grade-modal-close" id="grade-modal-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="grade-modal-body">
+                <p class="grade-modal-text">Inserisci il voto per: <strong id="grade-exam-name"></strong></p>
+                <div class="grade-input-group">
+                    <input 
+                        type="number" 
+                        id="grade-modal-input" 
+                        placeholder="18-30" 
+                        min="18" 
+                        max="30"
+                        autocomplete="off"
+                    >
+                    <div class="grade-range">
+                        <span>18</span>
+                        <span>30</span>
+                    </div>
+                    <div id="lode-checkbox-group" style="display:none; margin-top: 10px;">
+                        <label>
+                            <input type="checkbox" id="grade-modal-lode">
+                            <span style="margin-left: 5px;">Lode</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="grade-modal-footer">
+                <button class="grade-modal-btn grade-modal-cancel" id="grade-modal-cancel">
+                    <i class="fas fa-times"></i> Annulla
+                </button>
+                <button class="grade-modal-btn grade-modal-save" id="grade-modal-save">
+                    <i class="fas fa-save"></i> Salva Voto
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
