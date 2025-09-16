@@ -28,13 +28,13 @@
                     <div class="info-group">
                         <label><i class="fas fa-user"></i> Nome:</label>
                         <input type="text" id="student-name" placeholder="Il tuo nome" maxlength="50">
+                        <span id="student-name-text" style="display:none;"></span>
                     </div>
-                    
                     <div class="info-group">
                         <label><i class="fas fa-id-card"></i> Matricola:</label>
                         <input type="text" id="student-id" placeholder="Numero matricola" maxlength="20">
+                        <span id="student-id-text" style="display:none;"></span>
                     </div>
-                    
                     <div class="info-group">
                         <label><i class="fas fa-calendar"></i> Anno:</label>
                         <select id="student-year">
@@ -43,11 +43,12 @@
                             <option value="2">Secondo Anno</option>
                             <option value="3">Terzo Anno</option>
                         </select>
+                        <span id="student-year-text" style="display:none;"></span>
                     </div>
-                    
                     <div class="info-group">
                         <label><i class="fas fa-university"></i> Università:</label>
                         <input type="text" id="student-university" placeholder="Nome università" maxlength="100">
+                        <span id="student-university-text" style="display:none;"></span>
                     </div>
                 </div>
                 
@@ -176,6 +177,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script type="module" src="./dist/todolist.js"></script>
+
 </body>
 </html>
