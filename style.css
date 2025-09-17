@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+/* Corpo pagina */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
@@ -13,6 +14,7 @@ body {
     color: #333;
 }
 
+/* Contenitore principale */
 .container {
     max-width: 1200px;
     margin: 0 auto;

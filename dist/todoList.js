@@ -406,53 +406,53 @@ document.addEventListener('DOMContentLoaded', () => {
             todoApp.cancelEdit();
         }
     });
-    if (todoApp.todos.length === 0) {
-        const sampleTodos = [
-            'Design Grafico Digitale',
-            'Web Design e UX/UI',
-            'Fotografia Digitale',
-            'Typography e Layout',
-            'Illustrazione Digitale',
-            'Motion Graphics',
-            'Branding e Identità Visiva',
-            'HTML, CSS e JavaScript',
-            'Adobe Photoshop Avanzato',
-            'Adobe Illustrator',
-            'Adobe InDesign',
-            'Adobe After Effects',
-            'Figma e Design Systems',
-            'User Experience Design',
-            'User Interface Design',
-            'Design Thinking',
-            'Storia del Design Grafico',
-            'Teoria del Colore',
-            'Composizione Visiva',
-            'Editoria Digitale',
-            'Packaging Design',
-            'Social Media Design',
-            'App Design e Mobile UI',
-            'WordPress e CMS',
-            'SEO e Web Marketing',
-            'Video Editing',
-            '3D Modeling Base',
-            'Print Design',
-            'Digital Art',
-            'Portfolio Design'
-        ];
-        sampleTodos.forEach(todoText => {
-            const cfu = Math.floor(Math.random() * 9) + 4;
-            const todo = {
-                id: Date.now() + Math.random(),
-                text: todoText,
-                cfu,
-                completed: false,
-                grade: null,
-                lode: false,
-                createdAt: new Date().toISOString()
-            };
-            todoApp.todos.unshift(todo);
-        });
-        todoApp.saveToLocalStorage();
-        todoApp.render();
-    }
+    // if (todoApp.todos.length === 0) {
+    //     const sampleTodos: string[] = [
+    //         'Design Grafico Digitale',
+    //         'Web Design e UX/UI',
+    //         'Fotografia Digitale',
+    //         'Typography e Layout',
+    //         'Illustrazione Digitale',
+    //         'Motion Graphics',
+    //         'Branding e Identità Visiva',
+    //         'HTML, CSS e JavaScript',
+    //         'Adobe Photoshop Avanzato',
+    //         'Adobe Illustrator',
+    //         'Adobe InDesign',
+    //         'Adobe After Effects',
+    //         'Figma e Design Systems',
+    //         'User Experience Design',
+    //         'User Interface Design',
+    //         'Design Thinking',
+    //         'Storia del Design Grafico',
+    //         'Teoria del Colore',
+    //         'Composizione Visiva',
+    //         'Editoria Digitale',
+    //         'Packaging Design',
+    //         'Social Media Design',
+    //         'App Design e Mobile UI',
+    //         'WordPress e CMS',
+    //         'SEO e Web Marketing',
+    //         'Video Editing',
+    //         '3D Modeling Base',
+    //         'Print Design',
+    //         'Digital Art',
+    //         'Portfolio Design'
+    //     ];
+    //     sampleTodos.forEach(todoText => {
+    //         const cfu = Math.floor(Math.random() * 9) + 4;
+    //         const todo: Todo = {
+    //             id: Date.now() + Math.random(),
+    //             text: todoText,
+    //             cfu,
+    //             completed: false,
+    //             grade: null,
+    //             lode: false,
+    //             createdAt: new Date().toISOString()
+    //         };
+    //         todoApp.todos.unshift(todo);
+    //     });
+    //     todoApp.saveToLocalStorage();
+    //     todoApp.render();
+    // }
 });
